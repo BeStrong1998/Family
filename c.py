@@ -1,32 +1,3 @@
-"""class Family:
-    def names(self):
-        return 4
-    a = ["Ben", "Engineer", "12.06.1977"]
-    b = ["Sofia", "Lawyуr", "22.09.1980"]
-    c = ["Jack", "Student", "17.05.2000"]
-    d = ["Maria", "Student", "29.12.2010"]
-
-family_objects = Family()
-print("Общее колличество членов семьи: ", family_objects.names())
-print()
-
-class Dad(Family):
-    def name_dad(self):
-        return family_objects.a[0]
-       
-    def profession_dad(self):
-        return family_objects.a[1]
-
-    def date_of_birth(self):
-        return family_objects.a[2]
-
-Dad_objects = Dad()
-print("Имя папы: ", Dad_objects.name_dad())
-print("Профессия папы: ", Dad_objects.profession_dad())
-print("Дата рождения папы: ", Dad_objects.date_of_birth())
-print()"""
-
-
 print()
 class Dad:
     def name_ded(self):
