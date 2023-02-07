@@ -69,13 +69,14 @@ class Daughter(Family):
 daughter = Daughter("Anna", "Student", "02.09.2011")
 
 
-family_lis = [dad, mom, son, daughter]
-for lis in family_lis:
-    print(lis.name())
-    print(lis.profession())
-    print(lis.date_of_birth())
-
-print(Son.mro())
 
 if __name__ == "__main__":
-    main()
+
+    family = [dad, mom, son, daughter]
+    for lis in family:
+        print(lis.name())
+        print(lis.profession())
+        print(lis.date_of_birth())
+
+    print(Son.mro())
+    
