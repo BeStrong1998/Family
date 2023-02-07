@@ -4,7 +4,7 @@ class CLS:
     def __str__(self):
         return f"{self.x}"
     def __add__(self, other):
-        x = str(self.x) + str(other.x)
+        x = int(self.x) + int(other.x)
         return CLS(x)
 
 a = CLS("1")
