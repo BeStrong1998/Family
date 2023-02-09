@@ -1,3 +1,5 @@
+# ООП с применениен наследования, полиморфизма и инкапсуляци + применил абстрактный метод
+
 from abc import ABC, abstractmethod
 
 
@@ -79,4 +81,3 @@ if __name__ == "__main__":
         print(lis.date_of_birth())
 
     print(Son.mro())
-    
