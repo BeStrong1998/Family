@@ -1,28 +1,54 @@
+# Пример использования магических методов __getattr__ и __setattr__
+
 class Point:
-    def __init__(self, a=0, b=None):
+    def __init__(self, a=1, b=1):
         self.a = a
-        self.__b = b
+        self.b = b
 
-    def set_value_a(self, a):
-        if self.a == a:
-            print('Значение атрибута -a- не изменилось!')
-        else:
-            print('Значение атрибута -a- изменилось на новое!')
+    def __getattr__(self, name: str):
+        return self.__dict__[f"_{name}"]
 
-    def set_value_b(self, b):
-        if self.__b == b:
-            print('Значение атрибута -b- не изменилось!')
-        else:
-            raise ValueError('Значение атрибута -b- нельзя изменить!')
-  
-    def get_value_b(self):
-        return self.__b
+    def __setattr__(self, name, value):
+        if name == '_a':
+            raise AttributeError('Значение атрибута a поменять нельзя')
+        if name == '_b':
+            print('Значение атрибута изменилось на новое')
+        self.__dict__[f"_{name}"] = value
 
-    def get_value_a(self):
-        return self.a  
+point = Point()
+#point._a = 1
+point._b = 1
+print(point.a, ':', point.__b)
+print(point.__dict__)
 
-pt = Point()
-pt.set_value_b(None)
-pt.set_value_a(1)
-print('b =', pt.get_value_b())
-print('a =', pt.get_value_a())
+
+
+# Пример использования @property
+"""class Employee:
+    def __init__(self, a, b):
+        self._a = a
+        self._b = b
+        
+    @property
+    def a(self):
+        return self._a
+
+    @a.setter
+    def a(self, value):
+        if self._a != value:
+            print('Значение атрибута a изменилось на новое!')
+
+    @property
+    def b(self):
+        return self._b
+
+    @b.setter
+    def b(self, value):
+        if self._b != value:
+            raise AttributeError('Значение атрибута b нельзя изменить!')
+
+pt = Employee(1,2)
+pt.a = 2
+pt.b = 3
+print(pt.a, ':', pt.b)"""
+
